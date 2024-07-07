@@ -12,20 +12,26 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from . info import *
-import os
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# MySAVA/settings.py
 
+from pathlib import Path
+from decouple import config
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('mysava2024@gmail.com')  # Your email address
-EMAIL_HOST_PASSWORD = os.environ.get('vaqf smfs gsxs fqtx')  # Your email password
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') 
 
+# Print to verify
+# print("EMAIL_HOST_USER:", EMAIL_HOST_USER)
+# print("EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -37,7 +43,6 @@ SECRET_KEY = 'django-insecure-wdke-rd%j16gdotni4rj$mgdqy__%d4#sin44zug-z67e!(xg0
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -80,7 +85,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MySAVA.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -90,7 +94,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -110,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -123,7 +125,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
