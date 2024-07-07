@@ -24,7 +24,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('mysava2024@gmail.com')  # Your email address
-EMAIL_HOST_PASSWORD = os.environ.get('MySAVA1234,.')  # Your email password
+EMAIL_HOST_PASSWORD = os.environ.get('vaqf smfs gsxs fqtx')  # Your email password
 
 
 # Quick-start development settings - unsuitable for production
