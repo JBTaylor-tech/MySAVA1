@@ -1,20 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySAVA</title>
-    <link id="themeStylesheet" href="style.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{%  static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="shortcut icon" href="/img/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="{%  static 'img/logo.svg' %}" type="image/x-icon">
 </head>
 <body>
     <div class="container-fluid d-flex p-0 h-100">
         <!-- Sidebar -->
+
         <div class="sidebar d-flex flex-column">
             <div class="top d-flex justify-content-between align-items-center">
-                <div class="slogo" id="sidebarToggle"><img src="img/logo.svg" alt="MySAVA"></div>
+                <div class="slogo" id="sidebarToggle"><img src="{% static 'img/logo.svg' %}" alt="MySAVA"></div>
                 <a href="#" text-light><i class="text-light bi bi-question-circle"></i></a>
                 <div class="modes d-flex">
                     <a href="#" id="sunIcon"  class="text-light me-2 d-none"><i class="bi bi-moon-fill"></i></a>
@@ -38,8 +40,8 @@
             </div>
             <div class="down four d-grid gap-2">
                 <p><b>Signup or Login</b><br>to see chat history.</p>
-                <a class="bn btn btn-primary" href="gs.html">Signup</a>
-                <a class="bn-ol btn btn-outline-primary" href="login.html">Login</a>
+                <a class="bn btn btn-primary" href="{% url 'signup' %}">Signup</a>
+                <a class="bn-ol btn btn-outline-primary" href="{% url 'signin' %}">Login</a>
             </div>
             <!-- after login this would be active to see account and logout -->     
             <!-- <div class="down four d-grid gap-2">
@@ -52,7 +54,7 @@
             <div class="top d-flex justify-content-between align-items-center p-3">
                 <div class="hamburger d-md-none"><i class="bi bi-list"></i></div>
                 <div class="name flex-grow-1 text-center">MySAVA</div>
-                <div class="top-btn"><a href="login.html" class="btn btn-primary">Login</a></div>
+                <div class="top-btn"><a href="{% url 'signin' %}" class="btn btn-primary">Login</a></div>
                 <!-- after login this would be active to create new conversation -->
                 <!-- <div class="top-btn"><a href="#" class="new-chat"><i class="bi bi-pencil-square"></i></a></div> -->
             </div>
@@ -60,7 +62,7 @@
                 
                 <div class="mid flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center">
                     <br><br><br><br>
-                    <div class="logo mb-3"><img src="img/logo.svg" alt="MySAVA" width="80"></div>
+                    <div class="logo mb-3"><img src="{% static 'img/logo.svg' %}" alt="MySAVA" width="80"></div>
                     <div class="greeting mb-3">Hi,</div>
                     <div class="prompts d-flex flex-wrap justify-content-center">
                         <div class="pmt1 mb-2 mx-2">How to apply for an official transcript</div>
@@ -95,6 +97,6 @@
         </div>
     </div>
 
-<script src="javascript.js"></script>
+<script src="{% static 'javascript.js' %}"></script>
 </body>
 </html>

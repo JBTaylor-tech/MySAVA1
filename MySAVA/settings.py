@@ -42,7 +42,7 @@ SECRET_KEY = 'django-insecure-wdke-rd%j16gdotni4rj$mgdqy__%d4#sin44zug-z67e!(xg0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -53,8 +53,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.microsoft',
+    'allauth.socialaccount.providers.apple',
+    'authentication.apps.AuthenticationConfig'
 ]
 
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+# Configure email verification
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Redirects after login and logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Add any additional settings here
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,6 +87,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'MySAVA.urls'
@@ -129,9 +154,35 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = 'authentication/static/'
+STATIC_URL = 'S/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add your social account provider keys here
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '850513000847-9ugl30kst2pgfg1s9t9ih0u073mmmirp.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    },
+    'microsoft': {
+        'APP': {
+            'client_id': '3df54f21-ffcc-4af6-bd6e-749736390b98',
+            'secret': 'IBj8Q~~~rPqy2FcgN5CDM2Z5EiDKFs2VAivwscWd',
+            'key': ''
+        }
+    },
+    'apple': {
+        'APP': {
+            'client_id': 'your-apple-client-id',
+            'secret': 'your-apple-client-secret',
+            'key': ''
+        }
+    }
+}

@@ -16,6 +16,11 @@ from . tokens import generate_token
 def home(request):
     return render(request, "authentication/index.html")
 
+# Create your views here.
+def success(request):
+    return render(request, "authentication/success.html")
+
+
 # authentication/views.py
 
 from django.core.mail import EmailMessage, send_mail, get_connection
