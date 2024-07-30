@@ -120,6 +120,33 @@ This project aims to develop an AI chatbot for student advisory services using N
    trainer.train()
    ```
 
+# Inline Comments within the Code
+```python
+
+# AI Chatbot for Student Advisory Using NLP
+
+"""
+This file contains the code for the AI chatbot project aimed at providing student advisory services.
+"""
+
+# Importing necessary libraries
+import numpy as np
+import pandas as pd
+import torch
+import torch.nn as nn
+import sklearn.model_selection as model_selection
+import sklearn.metrics as metrics
+from sklearn.model_selection import train_test_split
+import transformers
+from transformers import AutoModel, BertTokenizerFast, BertForSequenceClassification, Trainer, TrainingArguments
+import torch.nn.functional as F
+import nltk
+import string
+import random
+
+# Rest of the code is in the Repository
+```
+
 ## Contributions
 
 Contributions are welcome! Please fork this repository and submit pull requests for any features or bug fixes.
